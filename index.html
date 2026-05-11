@@ -69,7 +69,7 @@ iframe{width:100%;height:100%;border:none;}
 </nav>
 
 <section id="hero">
-  <h1 class="hero-title">Des publicités qui captivent,<br><span class="accent">des VSL qui vendent.</span></h1>
+  <h1 class="hero-title">Domine l'attention.<br><span class="accent">Explose tes ventes.</span></h1>
   <p style="margin-top:20px; color:var(--text-mid);">Expertise Montage Publicitaire & VSL pour Formateurs.</p>
 </section>
 
@@ -144,15 +144,15 @@ iframe{width:100%;height:100%;border:none;}
     </div>
     <div class="option-item reveal" onclick="selectOffer('Option : Traitement Urgence 48h')">
         <div class="opt-top"><span>Urgence - 48h</span><span>+30%</span></div>
-        <p class="opt-desc">Votre montage livré en priorité sous deux jours ouvrés.</p>
+        <p class="opt-desc">Votre montage livré sous 48h.</p>
     </div>
     <div class="option-item reveal" onclick="selectOffer('Option : Gros volume fichiers')">
         <div class="opt-top"><span>Gros volume rushs</span><span>+50 €</span></div>
-        <p class="opt-desc">Si plus de 30 min de rushs à trier pour extraire les meilleurs moments.</p>
+        <p class="opt-desc">Si plus de 30 min de rushs à trier.</p>
     </div>
     <div class="option-item reveal" onclick="selectOffer('Demande de Devis sur mesure')">
         <div class="opt-top"><span>Projet sur mesure</span><span>Devis</span></div>
-        <p class="opt-desc">Besoin spécifique ou volume important ? Contactez-moi.</p>
+        <p class="opt-desc">Besoin spécifique ou volume important ?</p>
     </div>
   </div>
 </section>
@@ -188,8 +188,12 @@ document.getElementById('mailForm').addEventListener('submit', function(e) {
   const email = document.getElementById('userEmail').value;
   const offer = document.getElementById('offerType').value;
   const message = document.getElementById('userMessage').value;
-  const mailtoLink = `mailto:eraonecreatives@outlook.fr?subject=Projet : ${offer}&body=Client : ${email}%0D%0A%0D%0AProjet :%0D%0A${message}`;
-  window.location.href = mailtoLink;
+  
+  // Formatage du lien mailto pour envoi direct via le client mail
+  const subject = encodeURIComponent(`Nouveau Projet : ${offer}`);
+  const body = encodeURIComponent(`De : ${email}\n\nOffre : ${offer}\n\nMessage :\n${message}`);
+  
+  window.location.href = `mailto:eraonecreatives@outlook.fr?subject=${subject}&body=${body}`;
 });
 </script>
 </body></html>
